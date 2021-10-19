@@ -72,10 +72,11 @@ public class RxPermissions {
         boolean isNewInstance = rxPermissionsFragment == null;
         if (isNewInstance) {
             rxPermissionsFragment = new RxPermissionsFragment();
+            fragmentManager.executePendingTransactions();
             fragmentManager
                     .beginTransaction()
                     .add(rxPermissionsFragment, TAG)
-                    .commitNow();
+                    .commit();
         }
         return rxPermissionsFragment;
     }
